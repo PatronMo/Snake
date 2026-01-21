@@ -168,3 +168,10 @@ document.addEventListener("keydown", e => {
     dx = 1; dy = 0;
   }
 });
+const usernameInput = document.getElementById("username");
+const savedUser = localStorage.getItem("snakeUser");
+
+if (savedUser && usernameInput) {
+  usernameInput.value = savedUser;
+  usernameInput.disabled = true;
+}
