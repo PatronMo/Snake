@@ -1,8 +1,10 @@
 body {
+  margin: 0;
   background: #111;
   color: #0f0;
   font-family: Arial, sans-serif;
   text-align: center;
+  overflow: hidden; /* 🚫 stop page scrolling */
 }
 
 button {
