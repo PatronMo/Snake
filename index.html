@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Snake Game</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🐍 Snake Game</h1>
-  <p>Score: <span id="score">0</span></p>
-  <canvas id="game" width="400" height="400"></canvas>
-  <p class="hint">Use arrow keys to move</p>
+
+  <!-- HOME -->
+  <div id="home" class="screen">
+    <h1>🐍 Snake Game</h1>
+
+    <input id="username" placeholder="Enter username">
+    <button onclick="saveUser()">Save</button>
+
+    <button class="play" onclick="showLevels()">▶ Play</button>
+
+    <h2>🏆 Leaderboard</h2>
+    <ul id="leaderboard"></ul>
+  </div>
+
+  <!-- LEVELS -->
+  <div id="levels" class="screen hidden">
+    <h1>Select Mode</h1>
+    <button onclick="startGame('easy')">🟢 Easy (16×16)</button>
+    <button onclick="startGame('big')">🌍 Big Map</button>
+    <button onclick="goHome()">⬅ Back</button>
+  </div>
+
+  <!-- GAME -->
+  <div id="gameScreen" class="screen hidden">
+    <h2 id="modeText"></h2>
+    <p>Score: <span id="score">0</span></p>
+    <canvas id="game"></canvas>
+    <button onclick="goHome()">🏠 Home</button>
+  </div>
 
   <script src="game.js"></script>
 </body>
 </html>
-
