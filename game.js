@@ -1,3 +1,4 @@
+// ---------- SCREENS ----------
 const screens = {
   home: document.getElementById("home"),
   levels: document.getElementById("levels"),
@@ -139,10 +140,22 @@ function loadLeaderboard() {
 
 loadLeaderboard();
 
-// ---------- CONTROLS ----------
+// ---------- CONTROLS (NO SCROLL) ----------
 document.addEventListener("keydown", e => {
-  if (e.key === "ArrowUp" && dy === 0) dx = 0, dy = -1;
-  if (e.key === "ArrowDown" && dy === 0) dx = 0, dy = 1;
-  if (e.key === "ArrowLeft" && dx === 0) dx = -1, dy = 0;
-  if (e.key === "ArrowRight" && dx === 0) dx = 1, dy = 0;
+  if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+    e.preventDefault(); // 🚫 stop page scrolling
+  }
+
+  if (e.key === "ArrowUp" && dy === 0) {
+    dx = 0; dy = -1;
+  }
+  if (e.key === "ArrowDown" && dy === 0) {
+    dx = 0; dy = 1;
+  }
+  if (e.key === "ArrowLeft" && dx === 0) {
+    dx = -1; dy = 0;
+  }
+  if (e.key === "ArrowRight" && dx === 0) {
+    dx = 1; dy = 0;
+  }
 });
