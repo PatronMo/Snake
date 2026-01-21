@@ -33,14 +33,23 @@ function showLevels() {
 
 // ---------- USER ----------
 function saveUser() {
+  // If a user already exists, block changes forever
+  if (localStorage.getItem("snakeUser")) {
+    alert("Username is locked on this device 🔒");
+    return;
+  }
+
   const name = document.getElementById("username").value.trim();
   if (!name) return alert("Enter username");
+
   localStorage.setItem("snakeUser", name);
+  alert("Username saved permanently!");
 }
 
 function getUser() {
   return localStorage.getItem("snakeUser") || "Player";
 }
+
 
 // ---------- GAME ----------
 function startGame(mode) {
